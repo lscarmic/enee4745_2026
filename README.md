@@ -1,6 +1,6 @@
 # ENEE 4745 — SGRP/1 Smart Grid Client Lab
  
-This repo is everything you need for the two-part networking lab: you'll
+This repo is everything you need for the two-part networking assignment: you'll
 write a Python TCP client that speaks **SGRP/1**, a fictional Layer-7
 protocol for substation RTU (Remote Terminal Unit) telemetry, against a
 teacher-supplied server.

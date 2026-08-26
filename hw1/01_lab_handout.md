@@ -2,8 +2,8 @@
 ## SGRP/1 Application-Layer Protocol Client: Framing, Handshake & Telemetry Decode
 
 **Protocol:** SGRP/1 (Smart Grid RTU Protocol, version 1) — a fictional protocol designed for this course.
-**Duration:** 1 week (4–5 class days)
-**Individual assignment.** Every student receives a unique wire trace (see §5). Two identical submissions are a Section 11 (Academic Integrity) referral regardless of who wrote the code.
+**Duration:** 2 weeks
+**Individual assignment.** Every student receives a unique wire trace (see §5).
 **Part 1 of 2.** This assignment is graded independently, on its own 100-point scale. HW2 (released separately, later in the course) picks up where this one leaves off and is graded independently as well.
 
 ---
@@ -34,7 +34,7 @@ By the end of HW1 you will be able to:
 4. Derive and apply a per-student cryptographic-style handshake key from a rolling-hash function.
 5. Explain, in writing, the design decisions behind a binary wire protocol — why each field exists, why checksums are computed the way they are, and what a well-formed session looks like from first byte to last.
 
-**Not covered in HW1 (deliberately deferred to HW2):** how TCP actually delivers bytes to your socket, why a single `recv()` call cannot be trusted to return one complete message, Wireshark packet capture and hex annotation, and the live oral/quiz defense. If your course lecture sequence hasn't reached TCP's transport-layer behavior yet, that's fine — HW1 doesn't require it. Keep that in mind, though: the fact that a simple `sock.recv(12)` "just works" against this assignment's server is a property of *this specific, well-behaved teacher server*, not a property of TCP in general. HW2 will make that distinction very concrete.
+**Not covered in HW1 (deliberately deferred to HW2):** how TCP actually delivers bytes to your socket, why a single `recv()` call cannot be trusted to return one complete message, Wireshark packet capture and hex annotation, and be able to explain these things on a quiz. The course lecture sequence will not have reached TCP's transport-layer behavior yet and that's fine — HW1 doesn't require it. Keep that in mind, though: the fact that a simple `sock.recv(12)` "just works" against this assignment's server is a property of *this specific, well-behaved class server*, not a property of TCP in general. HW2 will make that distinction very concrete.
 
 ---
 
@@ -103,7 +103,7 @@ def fletcher16(data: bytes) -> int:
     return (sum2 << 8) | sum1
 ```
 
-You must implement (or import from a shared module we provide) this exact algorithm — the teacher server uses it for both the header and payload checksums, and grading depends on bit-exact agreement. **In HW1, the server never intentionally corrupts a frame** — but your client should still compute and check both checksums on every frame it receives. If your own `fletcher16()` has a bug, every real (uncorrupted) frame will appear to fail its checksum from your client's point of view. That's a sign to go fix your checksum function, not a case you need to build recovery logic for yet — checksum-mismatch *recovery* (asking the server to resend a frame) is an HW2 skill.
+You must implement this exact algorithm — the class server uses it for both the header and payload checksums, and grading depends on bit-exact agreement. **In HW1, the server never intentionally corrupts a frame** — but your client should still compute and check both checksums on every frame it receives. If your own `fletcher16()` has a bug, every real (uncorrupted) frame will appear to fail its checksum from your client's point of view. That's a sign to go fix your checksum function, not a case you need to build recovery logic for yet — checksum-mismatch *recovery* (asking the server to resend a frame) is an HW2 skill.
 
 ### 3.5 OpCode Table — Client → Server (`0x00`–`0x7F`)
 

@@ -67,7 +67,7 @@ above each `TODO`; they explain exactly what's expected and why.
 ## 4. HW2 quickstart
  
 HW2 does **not** run against a server on your own machine. Your
-instructor hosts the chaos server centrally, and you connect to it
+instructors host the chaos server centrally, and you connect to it
 directly over the network the same way a real head-end client would
 connect to a remote RTU it can't see inside of. `shared/teacher_server.py`
 is **not part of the HW2 distribution** — if you happen to still have a

@@ -38,8 +38,7 @@ install` required.
 │   ├── 02_client_starter.py     Your starting point for HW2 (builds on HW1)
 │   └── 04_grading_rubric.md     How HW2 is scored
 └── shared/
-    ├── teacher_server.py        The reference server — used for HW1 only
-    │                            (see §4: HW2 does not ship this file)
+    ├── teacher_server.py        The reference server/ RTU
     └── autograder.py            Run this yourself before submitting
 ```
 
@@ -137,12 +136,12 @@ You're welcome to use AI assistants while working through this. Be aware
 that generic AI-generated socket code almost always assumes a single
 `recv()` call returns one full message — that assumption is wrong for
 real TCP, and it's exactly what HW2's chaos server is built to expose. If you can't
-explain why your own framing code works, that's a problem you
-want to find before the deadline, not during grading.
+explain why your own framing code works, that's something you'll want to 
+find before the deadline.
 
 ## 7. Questions
 
-Office hours  / email — lee-carmichael@utc.edu
+Teams / Office hours / email — lee-carmichael@utc.edu
 
 If we need dedicated one-on-one time, we can set up a Zoom call. Either way, don't 
 debug alone for hours before asking; a five-minute conversation can save an evening.
